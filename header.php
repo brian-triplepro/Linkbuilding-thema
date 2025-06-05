@@ -10,9 +10,19 @@
 <header>
   <div class="container flex justify-between items-center">
     <div class="logo">
-      <a href="<?php echo home_url(); ?>">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="Logo" class="h-10">
-      </a>
+    <a href="<?php echo home_url(); ?>">
+      <?php 
+        $header_logo = get_field('header_logo', 'option');
+
+         // Debugging line to check the value of $header_logo
+
+        if ($header_logo) {
+            echo '<img src="' . esc_url($header_logo) . '" alt="Header logo" class="h-20">';
+        } else {
+            echo bloginfo('name');
+        }        
+      ?>
+    </a>
     </div>
     <div class="hidden lg:block"><?php wp_nav_menu(['theme_location' => 'top-menu',  'container_class' => 'hoofdmenu']); ?></div>
     <div class="lg:hidden">
