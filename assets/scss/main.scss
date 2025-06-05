@@ -145,3 +145,13 @@ footer {
     }
 }
 
+.content-blokken:nth-of-type(odd) {
+
+    .content-afbeelding {
+        order: 2;
+    }
+
+    .content-text {
+        order: 1;   
+    }
+}

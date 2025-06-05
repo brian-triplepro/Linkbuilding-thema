@@ -130,3 +130,10 @@ footer {
   top: 10px;
   right: 20px;
 }
+
+.content-blokken:nth-of-type(odd) .content-afbeelding {
+  order: 2;
+}
+.content-blokken:nth-of-type(odd) .content-text {
+  order: 1;
+}
