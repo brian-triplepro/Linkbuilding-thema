@@ -18,4 +18,35 @@ function linkbuilding_setup() {
 }
 add_action('after_setup_theme', 'linkbuilding_setup');
 
+function thema_instellingen_bij_activatie() {
+ 
+  $home = get_page_by_title('Home');
+  if (!$home) {
+    $home_id = wp_insert_post(array(
+      'post_title'    => 'Home',
+      'post_status'   => 'publish',
+      'post_type'     => 'page',
+    ));
+  } else {
+    $home_id = $home->ID;
+  }
+
+  
+  $blog = get_page_by_title('Blogs');
+  if (!$blog) {
+    $blog_id = wp_insert_post(array(
+      'post_title'    => 'Blogs',
+      'post_status'   => 'publish',
+      'post_type'     => 'page',
+    ));
+  } else {
+    $blog_id = $blog->ID;
+  }
+
+
+  update_option('show_on_front', 'page');
+  update_option('page_on_front', $home_id);
+  update_option('page_for_posts', $blog_id);
+}
+add_action('after_switch_theme', 'thema_instellingen_bij_activatie');
 ?>
