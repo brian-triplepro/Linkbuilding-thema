@@ -1,18 +1,26 @@
- <footer>
-    <div class="container grid md:grid-cols-4 gap-20">
-        <div class="md:col-span-2">
-                Over ons
+<footer>
+<?php
 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+$footerblokken = get_field('footerblokken', 'option');
+
+if ($footerblokken) {
+    $footer_links = $footerblokken['footerblok_links'] ?? '';
+    $footer_rechts = $footerblokken['footerblok_rechts'] ?? '';
+?>
     
+     <div class="container grid md:grid-cols-4 gap-20">
+       <div class="md:col-span-2">
+            <?php echo $footer_links; ?>
         </div>
         <?php wp_nav_menu(['theme_location' => 'footer-menu']); ?>
         <div>
-            Bedrijfsnaam hier
-            Saffierstoep 7
-            9741 KP Groningen
-            info@bedrijf.com
+            <?php echo $footer_rechts; ?>
         </div>
     </div>
+
+    <?php
+}
+?>
+
 </footer>
 <?php wp_footer(); ?>
