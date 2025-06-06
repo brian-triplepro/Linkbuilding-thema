@@ -1,5 +1,4 @@
 <?php
-
 add_action( 'acf/include_fields', function() {
 	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 		return;
@@ -294,6 +293,81 @@ add_action( 'acf/include_fields', function() {
 				),
 			),
 		),
+		array(
+			'key' => 'field_6842a18033c53',
+			'label' => 'Kleuren',
+			'name' => '',
+			'aria-label' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+			'selected' => 0,
+		),
+		array(
+			'key' => 'field_6842a19533c54',
+			'label' => 'Tekst kleur',
+			'name' => 'text_color',
+			'aria-label' => '',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'enable_opacity' => 0,
+			'return_format' => 'string',
+			'allow_in_bindings' => 0,
+		),
+		array(
+			'key' => 'field_6842a1e8d23db',
+			'label' => 'Knop kleur',
+			'name' => 'btn_color',
+			'aria-label' => '',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'enable_opacity' => 0,
+			'return_format' => 'string',
+			'allow_in_bindings' => 0,
+		),
+		array(
+			'key' => 'field_6842a1c833c56',
+			'label' => 'Achtergrondkleur',
+			'name' => 'bg_color',
+			'aria-label' => '',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'enable_opacity' => 0,
+			'return_format' => 'string',
+			'allow_in_bindings' => 0,
+		),
 	),
 	'location' => array(
 		array(
@@ -329,6 +403,7 @@ add_action( 'acf/init', function() {
 	'icon_url' => 'dashicons-admin-generic',
 ) );
 } );
+
 
 
 ?>
