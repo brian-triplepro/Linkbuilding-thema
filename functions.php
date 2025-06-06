@@ -47,8 +47,17 @@ function thema_instellingen_bij_activatie() {
   update_option('show_on_front', 'page');
   update_option('page_on_front', $home_id);
   update_option('page_for_posts', $blog_id);
+
+  global $wp_rewrite;
+
+    update_option('permalink_structure', '/%category%/%postname%/');
+    $wp_rewrite->set_permalink_structure('/%category%/%postname%/');
+    $wp_rewrite->flush_rules();
+
 }
+
 add_action('after_switch_theme', 'thema_instellingen_bij_activatie');
 
 include_once get_template_directory() . '/assets/acf/acf-fields.php';
+
 ?>
