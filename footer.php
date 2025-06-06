@@ -12,7 +12,7 @@ if ($footerblokken) {
        <div class="md:col-span-2">
             <?php echo $footer_links; ?>
         </div>
-        <?php wp_nav_menu(['theme_location' => 'footer-menu']); ?>
+        <?php wp_nav_menu(['theme_location' => 'footer-menu', 'container_class' => 'footer-menu']); ?>
         <div>
             <?php echo $footer_rechts; ?>
         </div>
@@ -21,6 +21,5 @@ if ($footerblokken) {
     <?php
 }
 ?>
-
 </footer>
 <?php wp_footer(); ?>
