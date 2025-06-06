@@ -1,33 +1,21 @@
-$text-color: #807045;
-$bg-color: #fbf7f1;
-$btn-color: #cc7d47;
 $container-width: 1300px;
-
 
 body {
     font-size: 19px;
     margin: 0;
     font-family: "EB Garamond";
-    color: $text-color;
+    color: var(--text-color);
 }
 
 header {
-    background-color: $bg-color;
+    background-color: var(--bg-color);
     padding-left: 20px;
     padding-right: 20px;
     
     .top-bar {
-        border-bottom: 1px solid $text-color;
-    }
-
-    .footer-menu > ul,
-    .hoofdmenu > ul,
-    .categorie-menu > ul {
-        display: flex;
-        justify-content: space-between;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        gap: 20px;
+            @media(min-width: 1024px) {
+            border-bottom: 1px solid var(--text-color);
+        }
     }
 }
 
@@ -40,7 +28,7 @@ section {
     background-color: #fff;
 
     &:nth-of-type(even) {
-        background-color: $bg-color;
+        background-color: var(--bg-color);
     }
 }
 
@@ -61,7 +49,7 @@ section {
     .featured-blog-item {
         padding-bottom: 10px;
         margin-bottom: 10px;
-        border-bottom: 1px solid $text-color;
+        border-bottom: 1px solid var(--text-color);
 
         .blog-featured-image > img {
             width: 100%;
@@ -116,26 +104,40 @@ h3 {
     font-family: 'Tinos';
     font-size: 18px;
     color: #fff;
-    background-color: $btn-color;
-    border: 1px solid $btn-color;
+    background-color: var(--btn-color);
+    border: 1px solid var(--btn-color);
 }
 
 footer {
-    background-color: $bg-color;
+    background-color: var(--bg-color);
 }
 
 .mobile-menu-sidebar {
     display: none;
     position: fixed;
     top: 0;
+    left: 0;
     align-items: center;
     width: 90vw;
     height: 100vh;
     overflow-y: auto;
-    background-color: $bg-color;
+    background-color: var(--bg-color);
+
+    ul > li {
+        padding: 5px;
+    
+        &.current-menu-item {
+            text-decoration: underline;
+         }
+    }
+
+    .mobile-menu-content {
+        text-align: center;
+    }
 
     &.show {
         display: flex;
+        justify-content: center;
     }
 
     .close-mobile-menu {
@@ -148,10 +150,38 @@ footer {
 .content-blokken:nth-of-type(odd) {
 
     .content-afbeelding {
+        display: flex;
+        justify-content: center;
         order: 2;
     }
 
     .content-text {
         order: 1;   
     }
+}
+
+.hoofdmenu > ul,
+.categorie-menu > ul {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    gap: 20px;
+
+    .current-menu-item,    
+    li:hover {
+        text-decoration: underline;
+    }
+}
+
+.footer-menu > ul {
+    
+    .current-menu-item,    
+    li:hover {
+        text-decoration: underline;
+    }
+}
+
+.read-more:hover {
+    text-decoration: underline;
 }
