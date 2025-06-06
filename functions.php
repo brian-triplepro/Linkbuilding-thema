@@ -43,6 +43,17 @@ function thema_instellingen_bij_activatie() {
     $blog_id = $blog->ID;
   }
 
+  $linkpartners = get_page_by_title('Linkpartners');
+  if (!$linkpartners) {
+    $linkpartners_id = wp_insert_post(array(
+      'post_title'    => 'Linkpartners',
+      'post_status'   => 'publish',
+      'post_type'     => 'page',
+    ));
+  } else {
+    $linkpartners_id = $linkpartners->ID;
+  }
+
 
   update_option('show_on_front', 'page');
   update_option('page_on_front', $home_id);
