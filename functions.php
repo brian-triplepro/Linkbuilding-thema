@@ -93,7 +93,7 @@ add_filter('site_transient_update_themes', function ($transient) {
             $transient->response[$theme_slug] = [
                 'theme'       => $theme_slug,
                 'new_version' => $remote_version,
-                'url'         => 'https://github.com/brian-triplepro/Linkbuilding-thema', // info-pagina
+                'url'         => 'https://github.com/brian-triplepro/linkbuilding-thema', // info-pagina
                 'package'     => $zip_url,
             ];
         }
