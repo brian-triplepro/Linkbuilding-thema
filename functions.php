@@ -103,9 +103,13 @@ add_filter('site_transient_update_themes', function ($transient) {
 });
 
 add_filter('auto_update_theme', function ($should_update, $item) {
-    if ($item->slug === 'linkbuilding-thema-main') {
-        return true;
+    $theme_slug = 'linkbuilding-thema-main';
+    $slug = $item->slug ?? $item->theme ?? null;
+
+    if ($slug === $theme_slug) {
+        return true; 
     }
+
     return $should_update;
 }, 10, 2);
 ?>
