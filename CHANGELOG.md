@@ -1,4 +1,5 @@
 ** Changelog **
 
+1.0.2 - Bugfix als $item->slug niet bestaat
 1.0.1 - Bugfix
 1.0 - Initiele release van het thema
