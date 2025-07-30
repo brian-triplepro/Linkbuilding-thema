@@ -1,5 +1,7 @@
 ** Changelog **
 
+1.0.3.1 - Wijziging in afstand h2-koppen.
+       
 ------------------------------------------------------------------------------------------------------------------------
 
 1.0.3   - Melding toegevoegd als acf/scf niet geinstalleerd is of is gedeactiveerd.
