@@ -387,23 +387,20 @@ add_action( 'acf/include_fields', function() {
 	'active' => true,
 	'description' => '',
 	'show_in_rest' => 0,
-) );
+	) );
 } );
 
-add_action( 'acf/init', function() {
-	acf_add_options_page( array(
-	'page_title' => 'Thema instellingen',
-	'menu_slug' => 'thema-instellingen',
-	'position' => '',
-	'redirect' => false,
-	'menu_icon' => array(
-		'type' => 'dashicons',
-		'value' => 'dashicons-admin-generic',
-	),
-	'icon_url' => 'dashicons-admin-generic',
-) );
-} );
-
-
-
+add_action('acf/init', function () {
+    if (function_exists('acf_add_options_page')) {
+        acf_add_options_page([
+            'page_title'  => 'Thema instellingen',
+            'menu_title'  => 'Thema instellingen',
+            'menu_slug'   => 'thema-instellingen',
+            'capability'  => 'manage_options',
+            'redirect'    => false,
+            'icon_url'    => 'dashicons-admin-generic',
+            'position'    => 61,
+        ]);
+    }
+});
 ?>
