@@ -112,4 +112,16 @@ add_filter('auto_update_theme', function ($should_update, $item) {
 
     return $should_update;
 }, 10, 2);
+
+add_action('admin_notices', function () {
+    if (!function_exists('acf_add_options_page')) {
+        $plugin_slug = 'advanced-custom-fields'; // vervang dit met 'secure-custom-fields' als je die bedoelt
+        $install_url = admin_url('plugin-install.php?tab=search&type=term&s=' . urlencode($plugin_slug));
+
+        echo '<div class="notice notice-error"><p>';
+        echo '<strong>Secure Custom Fields</strong> is niet geïnstalleerd of is gedeactiveerd. Het TriplePro Linkbuilding thema vereist deze plugin om goed te kunnen werken.<br><br>';
+        echo '<a href="' . esc_url($install_url) . '" class="button button-primary">Installeer of activeer plugin</a>';
+        echo '</p></div>';
+    }
+});
 ?>
