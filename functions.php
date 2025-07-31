@@ -74,11 +74,11 @@ include_once get_template_directory() . '/assets/acf/acf-fields.php';
 add_filter('site_transient_update_themes', function ($transient) {
     if (empty($transient->checked)) return $transient;
 
-    $theme_slug = 'linkbuilding-thema-main';
+    $theme_slug = 'linkbuilding-thema';
     $theme = wp_get_theme($theme_slug);
 
     $github_css_url = 'https://raw.githubusercontent.com/brian-triplepro/Linkbuilding-thema/main/style.css';
-    $zip_url = 'https://github.com/brian-triplepro/Linkbuilding-thema/archive/refs/heads/main.zip';
+   
 
     $response = wp_remote_get($github_css_url);
 
@@ -87,9 +87,11 @@ add_filter('site_transient_update_themes', function ($transient) {
     $remote_css = wp_remote_retrieve_body($response);
 
     if (preg_match('/Version:\s*([0-9.]+)/i', $remote_css, $matches)) {
-        $remote_version = trim($matches[1]);
+      $remote_version = trim($matches[1]);
 
-        if (version_compare($theme->get('Version'), $remote_version, '<')) {
+      $zip_url = 'https://github.com/brian-triplepro/linkbuilding-thema/releases/download/v' . $remote_version . '/linkbuilding-thema.zip';
+
+      if (version_compare($theme->get('Version'), $remote_version, '<')) {
             $transient->response[$theme_slug] = [
                 'theme'       => $theme_slug,
                 'new_version' => $remote_version,
@@ -103,7 +105,7 @@ add_filter('site_transient_update_themes', function ($transient) {
 });
 
 add_filter('auto_update_theme', function ($should_update, $item) {
-    $theme_slug = 'linkbuilding-thema-main';
+    $theme_slug = 'linkbuilding-thema';
     $slug = $item->slug ?? $item->theme ?? null;
 
     if ($slug === $theme_slug) {
